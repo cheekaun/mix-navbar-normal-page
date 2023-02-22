@@ -26,23 +26,22 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
   const columns= [
-    { field: 'id', headerName: 'ID', width: 70 ,headerAlign: 'center', align:'center', menubar:'disable'},
-    { field: 'ChargeTypePicture', headerName: '1', width: 90 },
+    // { field: 'id', headerName: 'ID', width: 70 ,headerAlign: 'center', align:'center', menubar:'disable'},
+    { field: 'ChargeTypePicture', headerName: '1', width: 150 ,renderCell: (params) => <img src={params.value} />},
     { field: 'ChargeTypeName', headerName: '2', width: 150 },
   ];
 
-    const rows = [
-            { id:"1",ChargeTypePicture: "test1", ChargeTypeName: 'test2'},
-    ];
+    // const rows = [
+    //         { id:"1",ChargeTypePicture: "test1", ChargeTypeName: 'test2'},
+    // ];
 
 function StationInfomation(props) {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/GetStationInfo', {
-            userid: 3,
-          })
+        axios.get('http://localhost:5000/api/GetStationInfo?userid=3',
+        )
         .then(respone => {
             setData(respone.data.results)
         })
@@ -54,7 +53,7 @@ function StationInfomation(props) {
 
     
 
-    <div>
+    <div >
         
 
          <Grid container columns={16} columnSpacing={2} rowSpacing={2}>
@@ -68,10 +67,11 @@ function StationInfomation(props) {
                     <div style={{fontSize: '26px'}} >หัวปลั้ก</div>
 
 
-                    <div style={{ height: 400, width: '80%', justifyContent: 'center'} }>
+                    <div style={{ height: 400, width: '100%', justifyContent: 'center'} }>
                     <DataGrid
-                        rows={rows} 
+                        rows={data} 
                         columns={columns}
+                        rowHeight={150}
                         
                     />
                     </div>

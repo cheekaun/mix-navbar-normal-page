@@ -6,6 +6,7 @@ import Home from '../pages/Home'
 import List from "../pages/List";
 import History from "../pages/History";
 import StationInfo from "../pages/StationInfo"
+import UserVerifyHistory from "../pages/UserVerifyHistory"
 
 
 const Navbar = () => {
@@ -13,10 +14,13 @@ const Navbar = () => {
         <React.Fragment>
             <section>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
+                    <Route exact path="/" element={<Home/>} />
+                    <Route path="/home" element={<Home/>} />
+                    <Route path="/home/UserVerifyHistory" element={<UserVerifyHistory/>} />
                     <Route path="/list" element={<List />} />
-                    {/* <Route path="/history" element={<History />} /> */}
-                    <Route path="/history" element={<StationInfo />} />
+                    <Route path="/list/history" element={<StationInfo />} />
+                    <Route path="/history" element={<History />} />
+                    
                     
                 </Routes>
             </section>

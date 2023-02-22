@@ -91,9 +91,11 @@ export default function CreateStationHistoryTable (){
 
           
             <Item>
-            <NavLink to={"/history"} >
+            <NavLink to={"/list/history"} >
             <Button variant="contained" color="secondary" size="large">
-              คำร้องขอลงทะเบียน</Button> </NavLink>
+              คำร้องขอลงทะเบียน</Button> 
+            </NavLink>
+            
               <Button variant="contained" color="secondary" size="large">
               คำร้องขอสร้างสถานีชาร์จ</Button>
 
