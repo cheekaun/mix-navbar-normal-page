@@ -1,16 +1,16 @@
 import React from "react";
-import UserVerify from "../components/UserVerifyHistory"
+import UsageHistory from "../components/UsageHistory";
 
-const UserVerifyHistory = () => {
+const UseHistory = () => {
     return (
         <React.Fragment>
             
             <section>
-            <UserVerify/>
+                <UsageHistory/>
             </section>
         </React.Fragment>
         
     );
 }
 
-export default UserVerifyHistory
+export default UseHistory;

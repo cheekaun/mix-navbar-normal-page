@@ -14,7 +14,7 @@ import logo from '../../Logo/PlugmoodLOGO.png'
 
 import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
-
+import { useParams } from 'react-router-dom'
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -27,20 +27,22 @@ const Item = styled(Paper)(({ theme }) => ({
 
   const columns= [
     // { field: 'id', headerName: 'ID', width: 70 ,headerAlign: 'center', align:'center', menubar:'disable'},
-    { field: 'ChargeTypePicture', headerName: '1', width: 150 ,renderCell: (params) => <img src={params.value} />},
-    { field: 'ChargeTypeName', headerName: '2', width: 150 },
+    { field: 'ChargeTypePicture', headerName: '1', width: 150 ,renderCell: (params) => <img src={params.value} /> , menubar:'disable'},
+    { field: 'ChargeTypeName', headerName: '2', width: 150 , menubar:'disable'},
   ];
 
     // const rows = [
     //         { id:"1",ChargeTypePicture: "test1", ChargeTypeName: 'test2'},
     // ];
 
-function StationInfomation(props) {
+function StationInfomation({id}) {
 
     const [data, setData] = useState([]);
+    const {userid} = useParams()
+    console.log(userid)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/GetStationInfo?userid=3',
+        axios.get('http://localhost:5000/api/GetStationInfo?userid='+userid ,             ///////// ใช้ได้อยู่
         )
         .then(respone => {
             setData(respone.data.results)

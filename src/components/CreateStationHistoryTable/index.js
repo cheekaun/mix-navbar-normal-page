@@ -1,11 +1,10 @@
-//import { DataGrid } from '@mui/x-data-grid';
 import React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { Grid } from '@mui/material';
 import { Button } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import { div, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -80,7 +79,7 @@ export default function CreateStationHistoryTable (){
 
       <Grid container rowSpacing={1} columnSpacing={2} columns={16}>
           <Grid item xs={16} md={16}>
-          <div style={{fontSize: '40px', color: '#7B2CBF'} }>ยินดีต้อนรับ คุณ ...</div>
+          <div style={{fontSize: '50px', color: '#7B2CBF'} }>ยินดีต้อนรับ คุณ ...</div>
           </Grid>
 
           <Grid item xs={16} md={16}>
@@ -90,16 +89,23 @@ export default function CreateStationHistoryTable (){
           <Grid item xs={6}>
 
           
+          
             <Item>
-            <NavLink to={"/list/history"} >
+            <div style={{ width: '100%', justifyContent: 'center'} }>
+            <NavLink to={"/home/UserVerifyHistory"} >
+            {/* <NavLink to={ "/list/StationInfo/"+3} > */}
             <Button variant="contained" color="secondary" size="large">
               คำร้องขอลงทะเบียน</Button> 
             </NavLink>
             
+            
+            <NavLink to={"/home"} >
               <Button variant="contained" color="secondary" size="large">
               คำร้องขอสร้างสถานีชาร์จ</Button>
-
-              </Item>           
+              </NavLink>
+              </div> 
+              </Item>   
+                     
             
           </Grid>
 

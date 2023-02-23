@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 
 const columns = [
@@ -33,23 +34,34 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+  
+
+
+function YourList () {
+
+    const userid = 3
+    const navigate = useNavigate()
+  
   const handleEvent /*: GridEventListener<'rowClick'> */= (
     params, // GridRowParams
     event, // MuiEvent<React.MouseEvent<HTMLElement>>
     details, // GridCallbackDetails
   ) => {
     console.log(params.row.id);
+    
+    // <Navigate to="/list/StationInfo/3" />
+    navigate("/list/StationInfo/"+params.row.id)
   };
 
+    
 
-function YourList () {
     return(
         <Grid container spacing={2} columns={16} >
             <Grid item xs={16} md={16}>
                 <Item style={{ textAlign: 'left'}}>
-                <div style={{fontSize: '40px'} }>
+                <div style={{fontSize: '40px' , color: '#000000'} }>    
                 รายการของคุณ</div>
-                <div style={{fontSize: '26px'} }>
+                <div style={{fontSize: '26px' , color: '#000000'} }>
                 สถานีชาร์จของคุณ</div>
                 <div style={{ height: 400, width: '100%', justifyContent: 'center'} }>
                 <DataGrid
@@ -71,12 +83,12 @@ function YourList () {
 
             <Grid item xs={16} md={16}>
                 <Item style={{ textAlign: 'left'}}>
-                <div style={{fontSize: '26px'} }>
+                <div style={{fontSize: '26px' , color: '#000000'} }>
                 สร้างสถานีชาร์จใหม่</div>
                 </Item>
 
                 <Item style={{ textAlign: 'center'}}>
-                <div style={{fontSize: '20px'} }>
+                <div style={{fontSize: '20px' , color: '#000000'} }>
                 เพิ่มสถานีชาร์จใหม่ของคุณ เพื่อสร้างรายได้ที่เพิ่มขึ้น</div>
                 <div></div>
                 <Button variant="contained" color="secondary" size="large">คลิกเพื่อสร้างสถานีชาร์จใหม่</Button>

@@ -8,7 +8,7 @@ function App() {
     
     <React.Fragment>
       <BrowserRouter>
-      <MainPage/>
+        <MainPage/>
       </BrowserRouter>
     </React.Fragment>
     
