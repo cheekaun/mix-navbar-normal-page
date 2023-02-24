@@ -7,24 +7,39 @@ import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import { useState,useEffect } from 'react';
+import axios from 'axios';
 
+function YourList () {
 
-const columns = [
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/GetAllStation',             ///////// ใช้ได้อยู่
+    )
+    .then(respone => {
+        setData(respone.data.results)
+    })
+  },[])
+
+  console.log(data)
+  
+  const columns = [
     { field: 'id', headerName: 'ID', width: 70 ,headerAlign: 'center', align:'center', menubar:'disable'},
-    { field: 'Name', headerName: 'ชื่อสถานนีชาร์จ', width: 200 ,headerAlign: 'center', align:'center'},
+    { field: 'stationName', headerName: 'ชื่อสถานนีชาร์จ', width: 200 ,headerAlign: 'center', align:'center'},
     
   ];
 
-  const rows = [
- { id: '1', Name: 'สถานี Ev'},
- { id: '2', Name: 'Ev Center'},
- { id: '3', Name: 'ขับรถevชนตู้'},
- { id: '4', Name: 'สถานี Ev 2'},
- { id: '5', Name: 'สถานี Ev 3'},
- { id: '6', Name: 'สถานี Ev 4'},
- { id: '7', Name: 'สถานี Ev 5'},
+//   const rows = [
+//  { id: '1', stationName: 'สถานี Ev'},
+//  { id: '2', stationName: 'Ev Center'},
+//  { id: '3', stationName: 'ขับรถevชนตู้'},
+//  { id: '4', stationName: 'สถานี Ev 2'},
+//  { id: '5', stationName: 'สถานี Ev 3'},
+//  { id: '6', stationName: 'สถานี Ev 4'},
+//  { id: '7', stationName: 'สถานี Ev 5'},
  
-];
+// ];
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -34,10 +49,6 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-  
-
-
-function YourList () {
 
     const userid = 3
     const navigate = useNavigate()
@@ -66,7 +77,7 @@ function YourList () {
                 <div style={{ height: 400, width: '100%', justifyContent: 'center'} }>
                 <DataGrid
                     
-                    rows={rows}
+                    rows={data}
                     columns={columns}
                     //pageSize={5}
                     rowsPerPageOptions={[5]}
