@@ -35,14 +35,17 @@ const Item = styled(Paper)(({ theme }) => ({
     //         { id:"1",ChargeTypePicture: "test1", ChargeTypeName: 'test2'},
     // ];
 
-function StationInfomation({id}) {
+function StationInfomation() {
 
     const [data, setData] = useState([]);
-    const {userid} = useParams()
+    const {userid,stationID} = useParams()
     console.log(userid)
+    console.log(stationID)
+    
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/GetStationInfo?userid='+userid ,             ///////// ใช้ได้อยู่
+        // axios.get('http://localhost:5000/api/GetStationInfo?userid='+userid ,
+        axios.get('http://localhost:5000/api/GetStationInfo?userid='+userid +"&stationID="+stationID,            
         )
         .then(respone => {
             setData(respone.data.results)

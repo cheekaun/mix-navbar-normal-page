@@ -12,34 +12,13 @@ import axios from 'axios';
 
 function YourList () {
 
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/GetAllStation',             ///////// ใช้ได้อยู่
-    )
-    .then(respone => {
-        setData(respone.data.results)
-    })
-  },[])
-
-  console.log(data)
+  const userid = 3   //////// Test userID
   
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 ,headerAlign: 'center', align:'center', menubar:'disable'},
     { field: 'stationName', headerName: 'ชื่อสถานนีชาร์จ', width: 200 ,headerAlign: 'center', align:'center'},
     
   ];
-
-//   const rows = [
-//  { id: '1', stationName: 'สถานี Ev'},
-//  { id: '2', stationName: 'Ev Center'},
-//  { id: '3', stationName: 'ขับรถevชนตู้'},
-//  { id: '4', stationName: 'สถานี Ev 2'},
-//  { id: '5', stationName: 'สถานี Ev 3'},
-//  { id: '6', stationName: 'สถานี Ev 4'},
-//  { id: '7', stationName: 'สถานี Ev 5'},
- 
-// ];
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -49,19 +28,32 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+  const [data, setData] = useState([]);
 
-    const userid = 3
-    const navigate = useNavigate()
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/GetAllStation?userid='+userid,             ///////// ใช้ได้อยู่
+    )
+    .then(respone => {
+        setData(respone.data.results)
+    })
+  },[])
+
+  console.log(data)
+
+  const navigate = useNavigate()
   
   const handleEvent /*: GridEventListener<'rowClick'> */= (
     params, // GridRowParams
     event, // MuiEvent<React.MouseEvent<HTMLElement>>
     details, // GridCallbackDetails
   ) => {
+    console.log(userid);
     console.log(params.row.id);
     
+    
     // <Navigate to="/list/StationInfo/3" />
-    navigate("/list/StationInfo/"+params.row.id)
+    // navigate("/list/StationInfo/"+params.row.id +"/"+ userid)
+    navigate("/list/StationInfo/"+ userid +"/"+ params.row.id)
   };
 
     
