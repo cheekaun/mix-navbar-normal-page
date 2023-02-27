@@ -7,8 +7,10 @@ const MainPage = () => {
     return(
         <React.Fragment>
             {/* Heading section */}
+            <div className="fixed">
+
             <section>
-                <div>
+                <div className="w-screen">
                     <Navbar/>
                 </div>
             </section>
@@ -27,6 +29,8 @@ const MainPage = () => {
                     </div>
                 </div>
             </section>
+
+            </div>
         </React.Fragment>
         
     );

@@ -6,14 +6,14 @@ const Navbar = () => {
     return(
         <React.Fragment>
             <section>
-                <div className='h-20 w-full flex items-center pl-5 space-x-3 ' style={{backgroundColor: "#3C096C"}}>
-                    <div>
+                <div className='h-23 w-full flex items-center pl-5 space-x-3' style={{backgroundColor: "#3C096C"}}>
+                    <div className='m-5'>
                         {/* <BsBook className = 'text-white text-4xl'/> */}
                         <img src={logo} height={80} width={80}/>
                     </div>
 
                     <div>
-                        <p className="text-white text-3xl">Plug Mood</p>
+                        <p className="text-white text-4xl">Plug Mood</p>
                     </div>
                 </div>
             </section>

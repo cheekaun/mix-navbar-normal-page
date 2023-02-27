@@ -8,7 +8,8 @@ import History from "../pages/History";
 import StationInfo from "../pages/StationInfo"
 import UserVerifyHistory from "../pages/UserVerifyHistory"
 import UseHistory from "../pages/UseHistory";
-
+import Statistic from "../pages/Statistic";
+import Review from "../pages/Review";
 
 const Navbar = () => {
     return(
@@ -21,8 +22,9 @@ const Navbar = () => {
                     <Route path="/list" element={<List />} />
                     <Route path="/list/StationInfo/:userid/:stationID" element={<StationInfo />} />
                     {/* <Route path="/history" element={<History />} /> */}
-                    <Route path="/history" element={<UseHistory />} />
+                    <Route path="/history" element={<Statistic />} />
                     <Route path="/history/UseHistory" element={<UseHistory />} />
+                    <Route path="/history/UserReview" element={<Review/>} />
                 </Routes>
             </section>
         </React.Fragment>
