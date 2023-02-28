@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Maximize } from "@mui/icons-material";
 
 import axios from 'axios';
+import Rating from '@mui/material/Rating';
 
 export default function UsageHistory (){
 
@@ -24,6 +25,8 @@ export default function UsageHistory (){
     const [Allstation, setAllstation] = useState([]);
     const [ReviewData, setReviewData] = useState([]);
 
+    const [value, setValue] = useState([]);
+
     const handleChange = (e) => {
         console.log(stationID);
         setstationID(e.target.value);
@@ -33,24 +36,26 @@ export default function UsageHistory (){
 
     useEffect(() => {
         
-        axios.get('http://localhost:5000/api/GetAllStation?userid='+userid,             ///////// ใช้ได้อยู่
+        axios.get('http://localhost:5000/api/GetAllStation?userid='+userid, 
         )
         .then(respone => {
             setAllstation(respone.data.results)
+            
         })
       },[])
 
       console.log(Allstation);
 
 
-    // useEffect(() => {
+    useEffect(() => {
         
-    //     axios.get('http://localhost:5000/api/ChooseStation?userid='+userid +"&stationID="+stationID,             ///////// ใช้ได้อยู่
-    //     )
-    //     .then(respone => {
-    //         setReviewData(respone.data.results)
-    //     })
-    //   },[stationID])
+        axios.get('http://localhost:5000/api/ChooseStationReview?userid='+userid +"&stationID="+stationID, 
+        )
+        .then(respone => {
+            setReviewData(respone.data.results)
+            console.log(respone.data.results.length)
+        })
+      },[stationID])
 
       console.log(ReviewData);
 
@@ -139,20 +144,18 @@ export default function UsageHistory (){
             </Grid>
 
             <Grid item xs={16}>
-
+                
                 {
-                    ReviewData.map((y, index) => {
+                    ReviewData.map((item, index) => {
     
                                 return(
                                     <div key={index}>
-                                        {/* <div>{y.id}</div>
-                                        <div>{y.name}</div>
-                                        <div>{y.ChargeTP}</div>
-                                        <div>{y.ChargeTN}</div>
-                                        <div>{y.Cmodel}</div>
-                                        <div>{y.kWh}</div>
-                                        <div>{y.price}</div>
-                                        <div>{y.date}</div> */}
+                                        <div>{item.id}</div>
+                                        <div>{item.reviewer_name}</div>
+                                        <div>{item.score}</div>
+                                        <Rating value={item.score} precision={0.5} readOnly />
+                                        <div>{item.comment}</div>
+                                        <div>{item.date_time}</div>
                                         <div>================================</div>
                                     </div>
                                 )

@@ -42,14 +42,20 @@ export default function UserVerifyHistory (){
                 <Button variant="contained" color="grey" size="medium"disabled>สำเร็จ</Button>
                 </Item>
 
-                <div style={{ height: 150, width: '100%', justifyContent: 'center'} }>
+                <div style={{ height: 100, width: '100%', justifyContent: 'center'} }>
+
                 </div>
                 <Item style={{ textAlign: 'center'}}>
+
                 <div style={{fontSize: '50px'} }>
                 กรุณากรอกแบบฟอร์มยืนยันตัวตน<br></br>เพื่อทำการลงทะเบียน</div>
-                <div></div>
+
+                <div>
+
+                </div>
                 <Button variant="contained" color="secondary" size="large">คลิกเพื่อลงทะเบียน</Button>
-                <div style={{ height: 150, width: '100%', justifyContent: 'center'} }>
+
+                <div style={{ height: 100, width: '100%', justifyContent: 'center'} }>
                 </div>
                 </Item>
 

@@ -85,16 +85,26 @@ const Item = styled(Paper)(({ theme }) => ({
             </Grid>
 
             <Grid item xs={16} md={16}>
+
                 <Item style={{ textAlign: 'left'}}>
                 <div style={{fontSize: '26px' , color: '#000000'} }>
                 สร้างสถานีชาร์จใหม่</div>
                 </Item>
 
                 <Item style={{ textAlign: 'center'}}>
+                  
+                <div style={{ height: 50, width: '100%', justifyContent: 'center'} }>
+                </div>
+
                 <div style={{fontSize: '20px' , color: '#000000'} }>
                 เพิ่มสถานีชาร์จใหม่ของคุณ เพื่อสร้างรายได้ที่เพิ่มขึ้น</div>
                 <div></div>
+                
                 <Button variant="contained" color="secondary" size="large">คลิกเพื่อสร้างสถานีชาร์จใหม่</Button>
+
+                <div style={{ height: 50, width: '100%', justifyContent: 'center'} }>
+                </div>
+                
                 </Item>
 
                 

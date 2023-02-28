@@ -7,10 +7,10 @@ const MainPage = () => {
     return(
         <React.Fragment>
             {/* Heading section */}
-            <div className="fixed">
+            <div className="">     {/* ถ้าเป็น fixed จะมีปัญหาอีกนิดนึง , absolute พอใช้ได้ แต่มีบัคนิดหน่อย*/}
 
             <section>
-                <div className="w-screen">
+                <div className="w-absolute"> {/* w-screen ขวาเกินไปนิสนึง*/}
                     <Navbar/>
                 </div>
             </section>
