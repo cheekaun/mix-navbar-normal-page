@@ -65,11 +65,11 @@ function StationInfomation() {
 
             <Grid item xs={8} md={8}>
                 <Item style={{ textAlign: 'left'}}>
-                    <div style={{fontSize: '40px'} }>
+                    <div style={{fontSize: '40px', color:'#000000'} }>
                     สถานีชาร์จของคุณ</div>
 
-                    <div style={{fontSize: '30px'}} >ชื่อสถานนี</div>
-                    <div style={{fontSize: '26px'}} >หัวปลั้ก</div>
+                    <div style={{fontSize: '30px', color:'#000000'}} >ชื่อสถานนี</div>
+                    <div style={{fontSize: '26px', color:'#000000'}} >หัวปลั้ก</div>
 
 
                     <div style={{ height: 400, width: '100%', justifyContent: 'center'} }>
@@ -81,7 +81,7 @@ function StationInfomation() {
                     />
                     </div>
                     
-                    
+                    <div style={{ color:'#000000'}}>
 
                     <div style={{fontSize: '26px'}} >ประเภทสถานที่ตั้ง</div>
                     <div style={{fontSize: '26px'}} >เบอร์โทรติดต่อ</div>
@@ -90,6 +90,8 @@ function StationInfomation() {
                     <div style={{fontSize: '26px'}} >ความปลอดภัย</div>
                     <div style={{fontSize: '26px'}} >สถานที่</div>
                     <div style={{fontSize: '26px'}} >ช่องทางการชำระเงิน</div>
+
+                    </div>
 
                     
 

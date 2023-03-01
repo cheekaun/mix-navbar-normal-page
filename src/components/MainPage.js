@@ -24,7 +24,7 @@ const MainPage = () => {
                     </div>
 
 
-                    <div className="col-span-9 bg-white h-screen pl-2 md:col-span-10 overflow-y-scroll">
+                    <div className="col-span-9 bg-white h-screen pl-2 pr-2 md:col-span-10 overflow-y-scroll">
                         <NavPage/>
                     </div>
                 </div>

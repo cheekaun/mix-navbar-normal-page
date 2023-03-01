@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 
+import {RiFileList3Line} from 'react-icons/ri'
+
 function YourList () {
 
   const userid = 3   //////// Test userID
@@ -61,11 +63,19 @@ const Item = styled(Paper)(({ theme }) => ({
     return(
         <Grid container spacing={2} columns={16} >
             <Grid item xs={16} md={16}>
+
+    
+
                 <Item style={{ textAlign: 'left'}}>
-                <div style={{fontSize: '40px' , color: '#000000'} }>    
-                รายการของคุณ</div>
-                <div style={{fontSize: '26px' , color: '#000000'} }>
+                  
+                <div className='flex items-center' style={{fontSize: '50px', color: '#000000' , justifyContent:'left'} }>
+                  <div><RiFileList3Line /></div>
+                  <div>รายการของคุณ</div> 
+                </div>
+              <div style={{fontSize: '26px' , color: '#000000'} }>
                 สถานีชาร์จของคุณ</div>
+                
+                
                 <div style={{ height: 400, width: '100%', justifyContent: 'center'} }>
                 <DataGrid
                     

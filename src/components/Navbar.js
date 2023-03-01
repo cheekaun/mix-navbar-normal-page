@@ -7,7 +7,7 @@ const Navbar = () => {
         <React.Fragment>
             <section>
                 <div className='h-23 w-full flex items-center pl-5 space-x-3' style={{backgroundColor: "#3C096C"}}>
-                    <div className='m-5'>
+                    <div className='m-3'>
                         {/* <BsBook className = 'text-white text-4xl'/> */}
                         <img src={logo} height={80} width={80}/>
                     </div>

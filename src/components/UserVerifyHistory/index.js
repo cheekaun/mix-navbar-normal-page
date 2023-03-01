@@ -28,8 +28,11 @@ export default function UserVerifyHistory (){
                 สถานะคำร้อง</div>
                 <div style={{ width: '100%', justifyContent: 'center'} }>
                 </div>
-                <Button variant="contained" color="secondary" size="large">คำร้องขอลงทะเบียนผู้ใช้งาน</Button> 
-                <Button variant="outlined" size="large" disabled>คำร้องขอลงทะเบียนสถานีชาร์จ</Button>
+                
+                <Button variant="contained" color="secondary" size="large" >คำร้องขอลงทะเบียนผู้ใช้งาน</Button> 
+
+                <NavLink to={"/home"} >
+                <Button variant="outlined" color="secondary" size="large" >คำร้องขอลงทะเบียนสถานีชาร์จ</Button></NavLink>
                 <div style={{ height: 5, width: '100%', justifyContent: 'center'} }>
                 </div>
                 </Item>
