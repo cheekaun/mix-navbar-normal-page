@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Maximize } from "@mui/icons-material";
 
 import axios from 'axios';
+import { Avatar } from '@mui/material';
 
 export default function UsageHistory (){
 
@@ -69,6 +70,7 @@ export default function UsageHistory (){
       }));
 
     return(
+        <div>
         <Grid container rowSpacing={1} columnSpacing={2} columns={16}>
 
             <Grid item xs={16}>
@@ -142,56 +144,50 @@ export default function UsageHistory (){
 
             </Grid>
 
-            <Grid item xs={16} >
-                <Item>
-                    <Grid item xs={4}>
-                {/* <Grid item xs={3}>
-                    <Item style={{ textAlign: 'left'}}>
-                            
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Cat_August_2010-4.jpg" width="100%" height="100%"/>
-                    </Item>
-                    
-                </Grid>
-
-                <Grid item xs={5}>
-                    <Item style={{ textAlign: 'left'}}>
-                    <div>Hi </div></Item>
-                </Grid> */}
-      
-                {
-                    usageData.map((y, index) => {
-                        console.log(index);
-                                return(
-                                <div key={index}>
-                                <Item>
-                                    
-                                        <div>{y.id}</div>
-                                        <div>{y.name}</div>
-                                        <div>{y.ChargeTP}</div>
-                                        <div>{y.ChargeTN}</div>
-                                </Item>
-                                <Item>
-                                        <div>{y.Cmodel}</div>
-                                        <div>{y.kWh}</div>
-                                        <div>{y.price}</div>
-                                        <div>{y.date}</div>
-                                        <div>================================</div>
-                                    
-                                </Item>
-                                </div>
-                                )
-                                
-                    })
-                }  
-
-                    </Grid>
-                    
-
-                </Item>
-            </Grid>
             
 
         </Grid>
-        
+
+        <div style={{paddingTop:10 , height:500}}>
+            <div style={{display:'flex', flexDirection:'column', padding:10, overflowY:'scroll',height:700}}>
+                    
+                    {
+                        usageData.map((y, index) => {
+                            console.log(index);
+                                    return(
+                                    <div key={index}>
+                                    
+                                    <div style={{display:'flex', flexDirection:'row'}}>
+                                            {/* <div>{y.id}</div> */}
+                                            <Avatar alt={y.name}src="/static/images/avatar/1.jpg" />
+                                            
+                                            <div style={{display:'flex', flexDirection:'column', paddingLeft:10}}>
+
+                                                <div>{y.name}</div>
+
+                                                <div style={{display:'flex', flexDirection:'row'}}>
+                                                    <div>{y.ChargeTP}</div>
+                                                    <div style={{paddingLeft:10}}>{y.ChargeTN}</div>
+                                                </div>
+                                    
+                                    
+                                            <div>{y.Cmodel}</div>
+                                            <div>{y.kWh}</div>
+                                            <div>{y.price}</div>
+                                            <div>{y.date}</div>
+                                            <div>================================</div>
+                                            </div>
+                                            </div>
+                                        
+                                    
+                                    </div>
+                                    )
+                        
+                        })
+                    } 
+                    
+                    </div> 
+            </div>
+    </div>
     );
 }

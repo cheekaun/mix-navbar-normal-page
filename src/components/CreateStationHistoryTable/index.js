@@ -88,19 +88,22 @@ export default function CreateStationHistoryTable (){
       // </Grid>
 
       <Grid container rowSpacing={1} columnSpacing={2} columns={16}>
-          <Grid item xs={16} md={16}>
+          {/* <Grid item xs={16} md={16}>
           <div style={{fontSize: '50px', color: '#7B2CBF'} }>ยินดีต้อนรับ คุณ ...</div>
           </Grid>
 
           <Grid item xs={16} md={16}>
           <div style={{fontSize: '30px'} } >สถานะคำร้อง</div>
-          </Grid>
+          </Grid> */}
 
-          <Grid item xs={6}>
+          <Grid item xs={16}>
 
           
           
-            <Item>
+          
+            <Item style={{ textAlign: 'left'}}>
+            <div style={{fontSize: '50px', color: '#7B2CBF'} }>ยินดีต้อนรับ คุณ ...</div>
+            <div style={{fontSize: '30px'} } >สถานะคำร้อง</div>
             <div style={{ width: '100%', justifyContent: 'center'} }>
             <NavLink to={"/home/UserVerifyHistory"} >
             {/* <NavLink to={ "/list/StationInfo/"+3} > */}

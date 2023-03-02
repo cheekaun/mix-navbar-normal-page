@@ -143,28 +143,39 @@ export default function UsageHistory (){
 
             </Grid>
 
-            <Grid item xs={16}>
-                
+            
+            <Grid item xs={15} style={{overflowY:'scroll'}}>
                 {
                     ReviewData.map((item, index) => {
-    
+                        
                                 return(
-                                    <div key={index}>
-                                        <div>{item.id}</div>
-                                        <div>{item.reviewer_name}</div>
-                                        <div>{item.score}</div>
-                                        <Rating value={item.score} precision={0.5} readOnly />
-                                        <div>{item.comment}</div>
-                                        <div>{item.date_time}</div>
-                                        <div>================================</div>
-                                    </div>
-                                )
-                                
+                                    
+                                        
+                                            <Item xs={5}>
+                                        <div key={index}>
+                                            <div style={{display:'flex' , flexDirection:'row'}}>
+                                                <div style={{fontSize: '20px', color: '#000000' , justifyContent:'left',textAlign: 'left',} }>
+                                                <div>{item.id}</div>
+                                                <div>{item.reviewer_name}</div>
+                                                <div>{item.score}</div>
+                                                <Rating value={item.score} precision={0.5} readOnly />
+                                                <div>{item.comment}</div>
+                                                <div>{item.date_time}</div>
+                                                <div>================================</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            </Item>
+                                        
+                                        
+                                    
+                                )      
                     })
                 }
-
-
             </Grid>
+
+
+            
             
 
         </Grid>
