@@ -21,7 +21,6 @@ const Navbar = () => {
                     <Route path="/home/UserVerifyHistory" element={<UserVerifyHistory/>} />
                     <Route path="/list" element={<List />} />
                     <Route path="/list/StationInfo/:userid/:stationID" element={<StationInfo />} />
-                    {/* <Route path="/history" element={<History />} /> */}
                     <Route path="/history" element={<Statistic />} />
                     <Route path="/history/UseHistory" element={<UseHistory />} />
                     <Route path="/history/UserReview" element={<Review/>} />

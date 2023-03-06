@@ -18,6 +18,42 @@ import axios from 'axios';
 
 export default function AllStatistic() {
 
+    const userid = 3
+
+    const [stationID, setstationID] = useState("");
+    const [ChooseMonth, setChooseMonth] = useState("");
+    const [ChooseYear, setChooseYear] = useState("");
+    const [Allstation, setAllstation] = useState([]);
+    
+
+    const handleChangeStation = (e) => {
+        console.log(stationID);
+        setstationID(e.target.value);
+    };
+
+    const handleChangeYear = (e) => {
+        console.log(ChooseYear);
+        setChooseYear(e.target.value);
+    };
+
+    const handleChangeMonth = (e) => {
+        console.log(ChooseMonth);
+        setChooseMonth(e.target.value);
+    };
+
+    useEffect(() => {
+        
+        axios.get('http://localhost:5000/api/GetAllStation?userid='+userid,             ///////// ใช้ได้อยู่
+        )
+        .then(respone => {
+            setAllstation(respone.data.results)
+            console.log("use Effect 1 Called");
+            
+        })
+      },[])
+
+    console.log(Allstation);
+
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -65,11 +101,108 @@ export default function AllStatistic() {
 
             <Grid item xs={16}>
 
-                <Item>
-                    <div>This is Statistic pages</div>
-                </Item>
+            <Item style={{ textAlign: 'left'}}>
+            <div style={{display:'flex', flexDirection:'column'}}>
 
+                    <div className='flex items-center' style={{fontSize: '20px', color: '#000000' , justifyContent:'left'} }>
+                        <div>
+                            เลือกสถานีชาร์จของคุณ
+                        </div>
+                    </div>
+
+                    
+
+                    <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+                    <InputLabel id="demo-simple-select-filled-label">เลือกสถานี</InputLabel>
+                        <Select
+                        labelId="demo-simple-select-filled-label"
+                        id="demo-simple-select-filled"
+                        value={stationID}
+                        onChange={handleChangeStation}
+                    >
+                        
+
+                            <MenuItem value="">
+                                <em>ทุกสถานี</em>
+                            </MenuItem>
+                            
+                            {
+                                Allstation.map (content =>(
+                                    
+                                    <MenuItem value={content.id} key={content.id} > {content.stationName}</MenuItem>
+                                    
+                                ))
+                            }
+
+                        </Select>
+                    </FormControl>
+                    
+                    <div className='flex items-center' style={{fontSize: '20px', color: '#000000' , justifyContent:'left'} }>
+                        <div>
+                            เลือกปี
+                        </div>
+                    </div>
+                    <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+                    <InputLabel id="demo-simple-select-filled-label">เลือกสถานี</InputLabel>
+                        <Select
+                        labelId="demo-simple-select-filled-label"
+                        id="demo-simple-select-filled"
+                        value={ChooseYear}
+                        onChange={handleChangeYear}
+                    >
+                        
+
+                            <MenuItem value="">
+                                <em>ทุกสถานี</em>
+                            </MenuItem>
+                            
+                            {
+                                Allstation.map (content =>(
+                                    
+                                    <MenuItem value={content.id} key={content.id} > {content.stationName}</MenuItem>
+                                    
+                                ))
+                            }
+
+                        </Select>
+                    </FormControl>
+                    
+                    <div className='flex items-center' style={{fontSize: '20px', color: '#000000' , justifyContent:'left'} }>
+                        <div>
+                            เลือกเดือน
+                        </div>
+                    </div>
+                    <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+                    <InputLabel id="demo-simple-select-filled-label">เลือกสถานี</InputLabel>
+                        <Select
+                        labelId="demo-simple-select-filled-label"
+                        id="demo-simple-select-filled"
+                        value={ChooseMonth}
+                        onChange={handleChangeMonth}
+                    >
+                        
+
+                            <MenuItem value="">
+                                <em>ทุกสถานี</em>
+                            </MenuItem>
+                            
+                            {
+                                Allstation.map (content =>(
+                                    
+                                    <MenuItem value={content.id} key={content.id} > {content.stationName}</MenuItem>
+                                    
+                                ))
+                            }
+
+                        </Select>
+                    </FormControl>
+
+                    </div>
+                    
+
+                </Item>
             </Grid>
+
             
         </Grid>
         

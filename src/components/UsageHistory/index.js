@@ -15,6 +15,7 @@ import { Maximize } from "@mui/icons-material";
 
 import axios from 'axios';
 import { Avatar } from '@mui/material';
+import { BsPlugFill ,BsCurrencyBitcoin } from 'react-icons/bs'
 
 export default function UsageHistory (){
 
@@ -29,8 +30,6 @@ export default function UsageHistory (){
         console.log(stationID);
         setstationID(e.target.value);
         console.log("onChange Called");
-        
-        
     };
 
 
@@ -157,26 +156,33 @@ export default function UsageHistory (){
                                     return(
                                     <div key={index}>
                                     
-                                    <div style={{display:'flex', flexDirection:'row'}}>
-                                            {/* <div>{y.id}</div> */}
-                                            <Avatar alt={y.name}src="/static/images/avatar/1.jpg" />
+                                        <div style={{display:'flex', flexDirection:'row'}}>
                                             
-                                            <div style={{display:'flex', flexDirection:'column', paddingLeft:10}}>
+                                                <Avatar alt={y.name}src="/static/images/avatar/1.jpg" />
+                                                
+                                                <div style={{display:'flex', flexDirection:'column', paddingLeft:10}}>
 
-                                                <div>{y.name}</div>
+                                                    <div>{y.name}</div>
 
-                                                <div style={{display:'flex', flexDirection:'row'}}>
-                                                    <div>{y.ChargeTP}</div>
-                                                    <div style={{paddingLeft:10}}>{y.ChargeTN}</div>
+                                                    <div style={{display:'flex', flexDirection:'row'}}>
+                                                        <div>{y.ChargeTP}</div>
+                                                        <div style={{paddingLeft:10}}>{y.ChargeTN}</div>
+                                                    </div>
+                                                    <div>{y.Cmodel}</div>
+                                                    <div className="flex items-center"style={{display:'flex', flexDirection:'row'}}>
+                                                        <div><BsPlugFill/></div>
+                                                        <div>{y.kWh} Khw</div> 
+                                                        <div style={{paddingLeft:30}}>
+                                                        <BsCurrencyBitcoin/>                    
+                                                        </div>
+                                                        <div>{y.price}</div>
+                                    
+                                                    </div>
+                                                    <div style={{textAlign:'start'}}>
+                                                        <div>{y.date}</div>
+                                                    </div>
+                                                    <div style={{ height:20 }}> </div>
                                                 </div>
-                                    
-                                    
-                                            <div>{y.Cmodel}</div>
-                                            <div>{y.kWh}</div>
-                                            <div>{y.price}</div>
-                                            <div>{y.date}</div>
-                                            <div>================================</div>
-                                            </div>
                                             </div>
                                         
                                     
