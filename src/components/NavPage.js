@@ -10,13 +10,14 @@ import UserVerifyHistory from "../pages/UserVerifyHistory"
 import UseHistory from "../pages/UseHistory";
 import Statistic from "../pages/Statistic";
 import Review from "../pages/Review";
+import LoginPage from "../pages/LoginPage";
 
 const Navbar = () => {
     return(
         <React.Fragment>
             <section>
                 <Routes>
-                    <Route exact path="/" element={<Navigate to="/home" />}/>
+                    <Route exact path="/" element={<LoginPage/>}/>
                     <Route path="/home" element={<Home/>} />
                     <Route path="/home/UserVerifyHistory" element={<UserVerifyHistory/>} />
                     <Route path="/list" element={<List />} />

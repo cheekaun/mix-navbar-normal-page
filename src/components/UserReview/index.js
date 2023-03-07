@@ -34,29 +34,56 @@ export default function UsageHistory (){
         console.log("onChange Called");
     };
 
-
-    useEffect(() => {
+    
+    // useEffect(() => {
         
-        axios.get('http://localhost:5000/api/GetAllStation?userid='+userid, 
-        )
-        .then(respone => {
-            setAllstation(respone.data.results)
+    //     axios.get('https://8fe8-158-108-238-16.ngrok.io/aqb/v1/test', 
+    //     )
+    //     .then(respone => {
+    //         console.log(respone.data.results)
             
-        })
-      },[])
+    //     })
+    //   },[])
 
-      console.log(Allstation);
+
+    // useEffect(() => {
+        
+    //     axios.get('http://localhost:5000/api/GetAllStation?userid='+userid, 
+    //     )
+    //     .then(respone => {
+    //         setAllstation(respone.data.results)
+            
+    //     })
+    //   },[])
+
+    //   console.log(Allstation);
 
 
     useEffect(() => {
         
-        axios.get('http://localhost:5000/api/ChooseStationReview?userid='+userid +"&stationID="+stationID, 
+        // axios.get('https://51d0-2405-9800-b540-a43-90be-fcf7-e173-538.ap.ngrok.io/api/ChooseStationReview?userid='+userid +"&stationID="+stationID, 
+        axios.get('https://8fe8-158-108-238-16.ngrok.io/aqb/v1/test', { withCredentials: true }
         )
         .then(respone => {
-            setReviewData(respone.data.results)
-            console.log(respone.data.results.length)
+            console.log(respone)
+            // setReviewData(respone.data.results)
+            // console.log(respone.data.results.length)
         })
       },[stationID])
+
+    // const makeAPICall = async () => {
+    //     try {
+    //       const response = await fetch('https://ad9a-2405-9800-b540-a43-90be-fcf7-e173-538.ap.ngrok.io/api/ChooseStationReview?userid=3&stationID=3', {mode:'cors'});
+    //       const data = await response.json();
+    //       console.log({ data })
+    //     }
+    //     catch (e) {
+    //       console.log(e)
+    //     }
+    //   }
+    //   useEffect(() => {
+    //     makeAPICall();
+    //   }, [stationID])
 
       console.log(ReviewData);
 
